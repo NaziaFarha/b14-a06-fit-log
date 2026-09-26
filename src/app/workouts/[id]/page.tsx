@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import { getPlan, savePlan } from "../../storage";
 
 type Workout = {
   id: number;
@@ -25,8 +26,10 @@ export default function WorkoutDetails() {
 
   const [workout, setWorkout] = useState<Workout | null>(null);
   const [loading, setLoading] = useState(true);
+  const [planCount, setPlanCount] = useState(0);
 
   useEffect(() => {
+    setPlanCount(getPlan().length);
     const fetchWorkout = async () => {
       try {
         const response = await fetch(
@@ -67,7 +70,7 @@ export default function WorkoutDetails() {
   return (
     <main className="details-page">
 
-      {/* NAVBAR */}
+      
       <nav className="navbar">
         <div className="logo">
           <span className="logo-mark">★</span>
@@ -87,7 +90,7 @@ export default function WorkoutDetails() {
         <div className="nav-status">
           <a href="/my-plan" className="status-item">
             Plan
-            <span className="plan-badge">0</span>
+            <span className="plan-badge">{planCount}</span>
           </a>
 
           <a href="/my-plan" className="status-item">
@@ -97,7 +100,7 @@ export default function WorkoutDetails() {
         </div>
       </nav>
 
-      {/* DETAILS */}
+      
       <section className="workout-details">
 
         <div className="details-image">
@@ -161,9 +164,25 @@ export default function WorkoutDetails() {
           </ol>
 
           <div className="details-buttons">
-            <button>
-              ADD TO TODAY'S PLAN
-            </button>
+            <button
+  onClick={() => {
+    const plan = getPlan();
+
+    const alreadyAdded = plan.some(
+      (item: Workout) => item.id === workout.id
+    );
+
+    if (!alreadyAdded) {
+      savePlan([...plan, workout]);
+      setPlanCount(plan.length + 1);
+      alert("Added to today's plan!");
+    } else {
+      alert("This workout is already in your plan.");
+    }
+  }}
+>
+  ADD TO TODAY'S PLAN
+</button>
 
             <button>
               SAVE FOR LATER
