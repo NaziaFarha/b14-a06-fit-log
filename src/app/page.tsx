@@ -2,7 +2,7 @@
 const Page = () => {
   return (
     <main>
-      {/* Navbar */}
+      
       <nav className="navbar">
         <div className="logo">
           <span className="logo-mark">★</span>
@@ -25,7 +25,7 @@ const Page = () => {
             <span className="plan-badge">0</span>
           </a>
 
-          <a href="/my-plan" className="status-item">
+          <a href= "/my-plan" className="status-item">
             Saved
             <span className="saved-badge">0</span>
           </a>

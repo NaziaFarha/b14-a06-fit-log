@@ -1,7 +1,4 @@
 @import "tailwindcss";
-/* =========================
-   GLOBAL
-========================= */
 
 * {
   box-sizing: border-box;
@@ -19,9 +16,7 @@ body {
 }
 
 
-/* =========================
-   NAVBAR
-========================= */
+
 
 .navbar {
   width: 100%;
@@ -42,7 +37,7 @@ body {
 }
 
 
-/* Logo */
+
 
 .logo {
   display: flex;
@@ -61,7 +56,7 @@ body {
 }
 
 
-/* Navigation links */
+
 
 .nav-links {
   position: absolute;
@@ -96,7 +91,7 @@ body {
 }
 
 
-/* Plan & Saved */
+
 
 .nav-status {
   display: flex;
