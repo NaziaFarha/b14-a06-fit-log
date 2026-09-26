@@ -31,6 +31,33 @@ const Page = () => {
           </a>
         </div>
       </nav>
+
+      
+      <section className="hero">
+        <div className="hero-content">
+          <p className="hero-eyebrow">WORKOUT LIBRARY</p>
+
+          <h1>
+            TRAIN WITH INTENT.
+            <br />
+            LOG EVERY SET.
+          </h1>
+
+          <p className="hero-description">
+            FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
+            into today's plan, and watch the week's work add up.
+          </p>
+
+          <a href="#library" className="hero-button">
+            BROWSE WORKOUTS <span>→</span>
+          </a>
+        </div>
+
+        <div className="hero-image">
+          <img src="/assets/banner.png" alt="Workout exercise" />
+        </div>
+      </section>
+
     </main>
   );
 };
