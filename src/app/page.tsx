@@ -46,7 +46,7 @@ const Page = () => {
   return (
     <main>
 
-      {/* NAVBAR */}
+      
       <nav className="navbar">
         <div className="logo">
           <span className="logo-mark">★</span>
@@ -77,7 +77,7 @@ const Page = () => {
       </nav>
 
 
-      {/* HERO */}
+      
       <section className="hero">
         <div className="hero-content">
 
@@ -107,7 +107,7 @@ const Page = () => {
         </div>
       </section>
     
-      {/* LIBRARY SECTION */}
+      
       <section id="library" className="library-section">
 
         <div className="section-heading">
@@ -118,7 +118,7 @@ const Page = () => {
         </div>
 
 
-        {/* LOADING */}
+        
         {loading && (
           <p style={{ color: "#777b82" }}>
             Loading workouts...
@@ -126,7 +126,7 @@ const Page = () => {
         )}
 
 
-        {/* WORKOUT CARDS */}
+        
         {!loading && (
           <div className="workout-grid">
 
@@ -147,10 +147,9 @@ const Page = () => {
                 </div>
 
 
-                {/* CONTENT */}
+                
                 <div className="workout-content">
 
-                  {/* CATEGORY */}
                   <div className="category-list">
                     {workout.muscleGroups.map((group) => (
                       <span
@@ -163,19 +162,15 @@ const Page = () => {
                   </div>
 
 
-                  {/* NAME */}
+                  
                   <h3>
                     {workout.name}
                   </h3>
 
-
-                  {/* EQUIPMENT */}
                   <p className="equipment">
                     {workout.equipment}
                   </p>
 
-
-                  {/* STATS */}
                   <div className="workout-stats">
 
                     <span>
