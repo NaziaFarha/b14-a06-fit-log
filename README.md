@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+1) The name og the project is FitLog - Workout Library
 
-## Getting Started
+2) FitLog is a modern workout library web application designed to help users discover, organize, and track their workouts. Users can browse different exercises, view detailed workout information, add workouts to today's plan, and save workouts for later. The application provides a clean dark-themed interface with responsive design for desktop and mobile devices.
 
-First, run the development server:
+3) I had to use many Technologies such as
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+i) Next.js
+ii) React
+iii)TypeScript
+iv)Tailwind css
+v) API
+vi) LocalStorage
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4) Key Features of the project 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+i) Workout Library : Browse a collection of workouts with images, muscle groups, equipment, duration, calories, and ratings.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ii)Workout Details: View detailed information about each workout, including description, equipment, statistics, and instructions.
 
-## Learn More
+iii)Today's Plan : Add workouts to today's plan and view total exercises, minutes, and calories.
 
-To learn more about Next.js, take a look at the following resources:
+iv)Save for Later : Save favorite workouts and access them from the Saved section.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+v)Responsive Design : Fully responsive layout that works smoothly on desktop, tablet, and mobile devices.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
