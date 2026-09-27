@@ -49,9 +49,9 @@ const Page = () => {
       
       <nav className="navbar">
         <div className="logo">
-          <span className="logo-mark">★</span>
-          <span>FITLOG</span>
-        </div>
+  <img src="/assets/logo.png" alt="" />
+  <span>FITLOG</span>
+</div>
 
         <div className="nav-links">
           <a href="/" className="nav-link active">
@@ -138,7 +138,7 @@ const Page = () => {
                 className="workout-card"
               >
 
-                {/* IMAGE */}
+              
                 <div className="workout-image">
                   <img
                     src={workout.image}

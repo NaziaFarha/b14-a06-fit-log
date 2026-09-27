@@ -2,7 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { getPlan, savePlan } from "../../storage";
+import {
+  getPlan,
+  savePlan,
+  getSaved,
+  saveSaved,
+} from "../../storage";
 
 type Workout = {
   id: number;
@@ -27,9 +32,11 @@ export default function WorkoutDetails() {
   const [workout, setWorkout] = useState<Workout | null>(null);
   const [loading, setLoading] = useState(true);
   const [planCount, setPlanCount] = useState(0);
+  const [savedCount, setSavedCount] = useState(0);
 
   useEffect(() => {
     setPlanCount(getPlan().length);
+    setSavedCount(getSaved().length);
     const fetchWorkout = async () => {
       try {
         const response = await fetch(
@@ -37,8 +44,34 @@ export default function WorkoutDetails() {
         );
 
         const data = await response.json();
+        console.log("DATA:", data);
 
-        setWorkout(data);
+
+console.log("API DATA:", data);
+const workoutData = data.data ?? data;
+
+console.log("FULL WORKOUT:", workoutData);
+
+setWorkout({
+  ...workoutData,
+
+  duration:
+    workoutData.duration ??
+    workoutData.durationMinutes ??
+    workoutData.time ??
+    0,
+
+  caloriesBurned:
+    workoutData.caloriesBurned ??
+    workoutData.calories ??
+    workoutData.calorie ??
+    0,
+
+  rating:
+    workoutData.rating ??
+    workoutData.rate ??
+    0,
+});
       } catch (error) {
         console.error("Failed to fetch workout:", error);
       } finally {
@@ -73,9 +106,9 @@ export default function WorkoutDetails() {
       
       <nav className="navbar">
         <div className="logo">
-          <span className="logo-mark">★</span>
-          <span>FITLOG</span>
-        </div>
+  <img src="/assets/logo.png" alt="" />
+  <span>FITLOG</span>
+</div>
 
         <div className="nav-links">
           <a href="/" className="nav-link">
@@ -95,7 +128,7 @@ export default function WorkoutDetails() {
 
           <a href="/my-plan" className="status-item">
             Saved
-            <span className="saved-badge">0</span>
+            <span className="saved-badge"> {savedCount}</span>
           </a>
         </div>
       </nav>
@@ -138,7 +171,7 @@ export default function WorkoutDetails() {
 
             <div>
               <span>Duration</span>
-              <strong>{workout.duration} min</strong>
+                <strong>{workout.duration} min</strong>
             </div>
 
             <div>
@@ -184,9 +217,25 @@ export default function WorkoutDetails() {
   ADD TO TODAY'S PLAN
 </button>
 
-            <button>
-              SAVE FOR LATER
-            </button>
+            <button
+  onClick={() => {
+    const saved = getSaved();
+
+    const alreadySaved = saved.some(
+      (item: Workout) => item.id === workout.id
+    );
+
+    if (!alreadySaved) {
+      saveSaved([...saved, workout]);
+      setSavedCount(saved.length + 1);
+      alert("Saved for later!");
+    } else {
+      alert("This workout is already saved.");
+    }
+  }}
+>
+  SAVE FOR LATER
+</button>
           </div>
 
         </div>
